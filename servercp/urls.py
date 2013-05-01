@@ -12,4 +12,4 @@ urlpatterns = patterns('',
                            name='delete'),
                        url(r'^info/(?P<pk>\d+)/$', login_required(servercp_views.ServerInfoView.as_view()),
                            name='info'),
-)
+                       )

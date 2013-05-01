@@ -28,7 +28,7 @@ class AccountUpdate(generic_views.UpdateView):
     form_class = usercp_forms.AccountUpdateForm
 
     def get_success_url(self):
-        if (self.request.POST):
+        if self.request.POST:
             messages.success(self.request, 'Account information successfully updated.')
         return reverse('usercp:account')
 

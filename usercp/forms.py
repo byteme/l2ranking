@@ -32,12 +32,12 @@ class RegisterForm(auth_forms.UserCreationForm):
     def clean_password1(self):
         password1 = self.cleaned_data.get('password1')
         if len(password1) < 8:
-            raise forms.ValidationError('Password must have at least 8 characters (it has %i).'  % len(password1))
+            raise forms.ValidationError('Password must have at least 8 characters (it has %i).' % len(password1))
         return password1
 
     def save(self, commit=True):
         user = super(auth_forms.UserCreationForm, self).save(commit=False)
-        user.set_password(self.cleaned_data.get('password1') )
+        user.set_password(self.cleaned_data.get('password1'))
         if commit:
             user.save()
         return user
@@ -49,7 +49,8 @@ class AccountUpdateForm(auth_forms.UserChangeForm):
     """
 
     new_password1 = forms.CharField(label='Password', min_length=8, widget=forms.PasswordInput(), required=False)
-    new_password2 = forms.CharField(label='Password conformation', min_length=8, widget=forms.PasswordInput(), required=False)
+    new_password2 = forms.CharField(label='Password conformation', min_length=8, widget=forms.PasswordInput(),
+                                    required=False)
 
     class Meta:
         model = User

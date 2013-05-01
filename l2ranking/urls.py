@@ -22,7 +22,7 @@ urlpatterns = patterns('',
                        url(r'^server/review/(?P<pk>\d+)/$', login_required(frontend_views.ReviewCreateView.as_view()),
                            name='review_server'),
                        url(r'^server/banner/(?P<pk>\d+)/$', 'frontend.views.dynamic_banner', name='dynamic_banner'),
-                       url(r'^category/(?P<pk>[a-z0-9\-]+)/(?P<page>[0-9]+)?$',
+                       url(r'^category/(?P<pk>[a-zA-Z0-9\-_]+)/(?P<page>[0-9]+)?$',
                            frontend_views.CategoryDetailView.as_view(), name='category'),
                        url(r'^search/$', frontend_views.SearchView.as_view(), name='search'),
 
@@ -37,4 +37,4 @@ urlpatterns = patterns('',
                        # Media file serve path
                        url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
                            {'document_root': settings.MEDIA_ROOT}),
-)
+                       )

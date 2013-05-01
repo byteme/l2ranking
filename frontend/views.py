@@ -181,7 +181,7 @@ def dynamic_banner(request, pk):
 
     server = get_object_or_404(frontend_models.Server, pk=pk)
 
-    response = HttpResponse(mimetype="image/png")
+    response = HttpResponse(mimetype='image/png')
     img = Image.open(server.category.banner.file)
     draw = ImageDraw.Draw(img)
     draw.text((10, 10), server.name)
